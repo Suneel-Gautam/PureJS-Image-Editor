@@ -107,6 +107,19 @@ main {
   background-color: var(--bg-active);
   height: 80vh;
   padding: var(--br-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ImageContainer div {
+  display: flex;
+  flex-direction: column;
+}
+.ImageContainer div i {
+  font-size: 8rem;
+}
+.ImageContainer div span {
+  font-size: 2rem;
 }
 
 .right {
@@ -127,6 +140,11 @@ main {
 
 .section > span {
   font-size: var(--fontsize-sm);
+}
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-sm);
 }
 
 .rangesection {
