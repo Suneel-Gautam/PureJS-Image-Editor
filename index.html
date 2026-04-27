@@ -15,29 +15,24 @@
       <div class="left">
         <div class="header">
           <div class="btn" id="choose-image">Choose image</div>
+          <input type="file" id="image-choose" hidden />
           <div class="btn" id="reset">Reset</div>
           <div class="btn" id="dowload-image">Download image</div>
         </div>
         <div class="ImageContainer">
-
-          <div>
+          <div class="placeholder">
             <i class="ri-file-image-line"></i>
             <span>No Image Choosen</span>
           </div>
+        <canvas id="mycanvas"></canvas>
+
         </div>
       </div>
 
       <div class="right">
         <span>Filters</span>
 
-
-        <div class="filters">
-          <div class="rangesection">
-            <span> Brightness </span>
-            <input type="range" />
-          </div>
-     
-        </div>
+        <div id="filters" class="filters"></div>
       </div>
     </main>
 

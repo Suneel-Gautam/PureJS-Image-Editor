@@ -22,13 +22,13 @@ const data = {
   saturation: {
     max: 100,
     min: 0,
-    value: 30,
+    value: 0,
     unit: "%",
   },
   hueRotation: {
     max: 100,
     min: 0,
-    value: 30,
+    value: 0,
     unit: "deg",
   },
   blur: {
@@ -46,31 +46,63 @@ const data = {
   sepia: {
     max: 100,
     min: 0,
-    value: 30,
+    value: 0,
     unit: "%",
   },
   opacity: {
     max: 100,
     min: 0,
-    value: 30,
+    value: 0,
     unit: "%",
   },
   invert: {
     max: 100,
     min: 0,
-    value: 30,
+    value: 0,
     unit: "%",
   }
 }
+const filterDiv = document.getElementById("filters")
+const chooseImage = document.querySelector('#choose-image')
+const inputImage = document.querySelector('#image-choose')
+const placeHolder = document.querySelector('.placeholder')
+const canva = document.querySelector('#mycanvas')
+let ctx = canva.getContext('2d')
 
 
-Object.keys(data).map(index => {
-  console.log(index, data[index])
+chooseImage.addEventListener('click', () => {
+  inputImage.click()
+})
+
+inputImage.addEventListener('change', (e)=>{
+  console.log(e.target.files[0])
+  const img = new Image()
+  
+})
+
+Object.keys(data).map(item => {
+  const items = data[item]
+  createElement(item, items.max, items.min, items.unit, items.value)
 })
 
 
-function createElement() {
+function createElement(name, max, min, unit = "%", value) {
   const div = document.createElement('div')
+  div.classList.add('rangesection')
+  filterDiv.appendChild(div)
 
+  const span = document.createElement('span')
+  span.innerHTML = `${name}`
+  div.appendChild(span)
+
+  const input = document.createElement('input')
+  input.type = 'range'
+  input.max = max
+  input.min = min
+  input.value = value
+  input.id = name
+  div.appendChild(input)
+
+  return div
 
 }
