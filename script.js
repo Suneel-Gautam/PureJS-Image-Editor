@@ -67,17 +67,21 @@ const chooseImage = document.querySelector('#choose-image')
 const inputImage = document.querySelector('#image-choose')
 const placeHolder = document.querySelector('.placeholder')
 const canva = document.querySelector('#mycanvas')
-let ctx = canva.getContext('2d')
+const ctx = canva.getContext('2d')
 
 
 chooseImage.addEventListener('click', () => {
   inputImage.click()
 })
 
-inputImage.addEventListener('change', (e)=>{
+inputImage.addEventListener('change', (e) => {
   console.log(e.target.files[0])
   const img = new Image()
-  
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0)
+  }
+  img.src = URL.createObjectURL(e.target.files[0])
+
 })
 
 Object.keys(data).map(item => {
