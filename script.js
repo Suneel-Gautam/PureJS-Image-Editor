@@ -65,9 +65,10 @@ const data = {
 const filterDiv = document.getElementById("filters")
 const chooseImage = document.querySelector('#choose-image')
 const inputImage = document.querySelector('#image-choose')
-const placeHolder = document.querySelector('.placeholder')
 const canva = document.querySelector('#mycanvas')
 const ctx = canva.getContext('2d')
+
+const placeholder = document.querySelector('#placeholder')
 
 
 chooseImage.addEventListener('click', () => {
@@ -76,11 +77,15 @@ chooseImage.addEventListener('click', () => {
 
 inputImage.addEventListener('change', (e) => {
   console.log(e.target.files[0])
+
+  canva.style.display = 'flex'
   const img = new Image()
   img.onload = () => {
     ctx.drawImage(img, 0, 0)
   }
   img.src = URL.createObjectURL(e.target.files[0])
+  placeholder.style.display = 'none'
+
 
 })
 

@@ -101,6 +101,9 @@ main {
 #dowload-image {
   background-color: var(--bg-sucess);
 }
+#mycanvas{
+  background-color: aqua;
+}
 
 .ImageContainer {
   margin-top: 30px;
